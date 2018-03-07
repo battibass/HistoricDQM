@@ -59,6 +59,10 @@ $(document).ready(
 									&& subsystem == "Strips"
 									&& (apvMode == "PEAK" || apvMode == "DECO")) {
 								$("#body").load("StripDeco.html");
+							} else if (dataSet == "SingleMuon"
+								   && subsystem == "DT"
+								   && (apvMode == "" || apvMode == null)) {
+							    $("#body").load("PromptRecoDT.html");
 							} else if ( dataSet == "StreamExpressCosmics"
 									&& subsystem == "Strips"
 									&& (apvMode == "PEAK" || apvMode == "DECO" )) {
@@ -98,7 +102,8 @@ $(document).ready(
 		});
 
 function subsystem() {
-	if ($("#subsystem").val() == "Pixel" ) {
+        if ( $("#subsystem").val() == "Pixel"  || 
+             $("#subsystem").val() == "DT"  ) {
 		$("#apvMode").prop("disabled", true);
 		$("#apvMode").val("No Selection");
 	} else {
